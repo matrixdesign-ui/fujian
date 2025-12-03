@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fujian Concrete Works - Your trusted partner for affordable, high-quality building materials and sustainable construction services in Nairobi. We provide aggregates, building stones, interlocking blocks, timber, and machinery hire.">
+    <meta name="keywords" content="concrete works, building materials, construction, aggregates, building stones, interlocking blocks, timber, machinery hire, Nairobi, construction services">
+    <meta name="author" content="Fujian Concrete Works">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <title>Fujian Concrete Works - Modern Building & Construction Solutions</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" as="style">
+    
+    <!-- Material Design Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Google Fonts (Roboto) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #343a40; /* Darker Grey */
+            --secondary-color: #dc3545; /* Red */
+            --secondary-color-darker: #c82333;
+            --light-grey: #f8f9fa;
+            --footer-bg: #212529;
+            --success-color: #198754;
+            --warning-color: #ffc107;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            scroll-padding-top: 70px;
+        }
+
+        /* --- Global Styles & Enhancements --- */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--secondary-color);
+            bottom: 0;
+            left: calc(50% - 25px);
+            border-radius: 2px;
+        }
+        
+        .btn-danger {
+            background-image: linear-gradient(to right, var(--secondary-color) 0%, var(--secondary-color-darker) 100%);
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
+        }
+
+        /* --- Navbar Enhancements --- */
+        .navbar {
+            transition: background-color 0.4s ease-out;
+        }
+        .navbar.scrolled {
+            background-color: #ffffff !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .navbar.scrolled .nav-link {
+            color: #333 !important;
+        }
+        .navbar.scrolled .navbar-brand {
+            color: #333 !important;
+        }
+        .navbar-brand img {
+            height: 50px; /* Increased from 40px */
+            transition: opacity 0.4s ease-out;
+        }
+        
+        .logo-dark {
+            height: 55px; /* Slightly bigger than logo-light */
+        }
+        .logo-dark {
+            display: none;
+            height: 55px; /* Slightly bigger than logo-light */
+        }
+        .navbar.scrolled .logo-light {
+            display: none;
+        }
+        .navbar.scrolled .logo-dark {
+            display: inline-block;
+        }
+        
+        .navbar-brand, .nav-link {
+            transition: color 0.3s;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(220, 53, 69, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); }
+        }
+        .btn-pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* --- Animation for Morph Transition --- */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* --- Hero Slider Styles --- */
+        .hero-section .carousel, .hero-section .carousel-inner, .hero-section .carousel-item { height: 100vh; }
+        .hero-section .carousel-item { background-size: cover; background-position: center; }
+        .hero-section .carousel-caption {
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+            z-index: 1; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+        }
+        .hero-title { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; }
+        .hero-slogan { font-size: clamp(1.2rem, 3vw, 1.5rem); font-weight: 300; margin-bottom: 2rem; }
+
+        /* --- Project Gallery Enhancement --- */
+        .project-card {
+            background: white; border-radius: 8px; overflow: hidden;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.1); transition: all 0.3s ease;
+            display: flex; flex-direction: column;
+        }
+        .project-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+        .project-card-img { height: 220px; object-fit: cover; }
+        .project-card-body { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
+        .project-card-title { font-weight: 700; }
+        .project-card-location { color: #6c757d; font-size: 0.9rem; margin-bottom: 1rem; }
+        .project-card-description { flex-grow: 1; }
+        .project-status {
+            display: inline-block; padding: 0.35em 0.65em; font-size: .75em; font-weight: 700;
+            line-height: 1; text-align: center; white-space: nowrap; vertical-align: baseline;
+            border-radius: 0.25rem; margin-top: auto; align-self: flex-start;
+        }
+        .status-complete { color: #fff; background-color: var(--success-color); }
+        .status-ongoing { color: #000; background-color: var(--warning-color); }
+        
+        /* --- Testimonials Section --- */
+        .testimonials-section {
+            background-color: var(--primary-color);
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1920&auto=format&fit=crop');
+            background-attachment: fixed; background-size: cover;
+        }
+        .testimonials-section .section-title { color: white; }
+        .testimonials-section .section-title::after { background: white; }
+        .testimonial-card {
+            background-color: rgba(255,255,255,0.1); color: white; padding: 2.5rem; border-radius: 0.5rem;
+            border: 1px solid rgba(255,255,255,0.2); min-height: 250px; display: flex; flex-direction: column; justify-content: center;
+        }
+        
+        /* --- FAQ Enhancement --- */
+        .accordion-button::after {
+            font-family: 'Material Icons'; content: '\e145'; transition: transform 0.2s ease-in-out;
+            background-image: none; font-size: 1.5rem; line-height: 1;
+        }
+        .accordion-button:not(.collapsed)::after { content: '\e15b'; transform: rotate(0deg); }
+        .accordion-button:not(.collapsed) { color: white; background-color: var(--primary-color); }
+        
+        /* --- Enhanced Modal Styles --- */
+        .modal-header { background-color: var(--primary-color); color: white; }
+        .modal-header .btn-close { filter: invert(1) grayscale(100%) brightness(200%); }
+        .modal-body img { width: 100%; height: auto; border-radius: 0.25rem; margin-bottom: 1rem; }
+        
+        /* --- Machinery Card --- */
+        .machinery-card img { height: 200px; object-fit: cover; }
+        
+        /* --- Footer & Back to Top --- */
+        .footer-section { background-color: var(--footer-bg); color: #adb5bd; padding: 60px 0 40px 0; }
+        .footer-bottom { background-color: #1a1e21; padding: 15px 0; color: #6c757d; text-align: center; }
+        #back-to-top {
+            position: fixed; bottom: -50px; right: 20px; z-index: 1030;
+            width: 45px; height: 45px; background-color: var(--secondary-color);
+            color: white; border-radius: 50%; text-decoration: none;
+            display: flex; justify-content: center; align-items: center;
+            transition: bottom 0.4s ease, transform 0.3s;
+        }
+        #back-to-top.show { bottom: 80px; }
+        #back-to-top:hover { transform: scale(1.1); }
+        
+        /* Skip links for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            z-index: 1000;
+            text-decoration: none;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* Social media links */
+        .social-links a {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+        
+        /* Cookie Consent Banner */
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.85);
+            color: white;
+            padding: 15px 0;
+            z-index: 9999;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .cookie-consent.show {
+            transform: translateY(0);
+        }
+        
+        .cookie-link {
+            color: #dc3545;
+            text-decoration: underline;
+        }
+        
+        .cookie-link:hover {
+            color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link sr-only">Skip to main content</a>
+    <a href="#navbarNav" class="skip-link sr-only">Skip to navigation</a>
+    <a href="#contact" class="skip-link sr-only">Skip to contact form</a>
+    
+    <!-- Cookie Consent Banner -->
+    <div id="cookieConsent" class="cookie-consent">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <p class="mb-0">We use cookies to improve your experience on our website. By continuing to browse, you agree to our <a href="#" class="cookie-link">Cookie Policy</a>.</p>
+                </div>
+                <div class="col-md-4 text-md-end mt-2 mt-md-0">
+                    <button id="acceptCookies" class="btn btn-sm btn-light">Accept All</button>
+                    <button id="rejectCookies" class="btn btn-sm btn-outline-light ms-2">Reject</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top" id="main-nav" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="img/logo_white.svg" alt="Fujian Concrete Works Logo" class="logo-light">
+                <img src="img/logo_dark.svg" alt="Fujian Concrete Works Logo" class="logo-dark">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+                <a href="#contact" class="btn btn-danger btn-pulse ms-lg-3">Get a Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section Slider -->
+    <header class="hero-section" id="home">
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner" role="listbox" aria-label="Hero image carousel">
+                <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1920&auto=format&fit=crop');">
+                    <div class="carousel-caption">
+                        <h1 class="hero-title">Fujian Concrete Works</h1>
+                        <p class="hero-slogan">At the heart of affordable building products & construction services</p>
+                        <div>
+                            <a href="#contact" class="btn btn-danger btn-lg mx-2 my-2">Contact Us</a>
+                            <a href="#products" class="btn btn-outline-light btn-lg mx-2 my-2">View Products</a>
+                        </div>
+                    </div>
+                </div>
+                 <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1581094371963-58e1c7a5f0a1?q=80&w=1920&auto=format&fit=crop');">
+                    <div class="carousel-caption">
+                        <h1 class="hero-title">Quality Materials, Solid Foundations</h1>
+                        <p class="hero-slogan">Your trusted partner for sustainable construction.</p>
+                        <div>
+                            <a href="#contact" class="btn btn-danger btn-lg mx-2 my-2">Get a Quote</a>
+                            <a href="#products" class="btn btn-outline-light btn-lg mx-2 my-2">Our Materials</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- About Us Section -->
+        <section id="about" class="section fade-in-section">
+            <div class="container">
+               <div class="row align-items-center">
+                   <div class="col-lg-6 mb-4 mb-lg-0">
+                       <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=600&auto=format&fit=crop" class="img-fluid rounded shadow-lg lazy" alt="Construction Workers" loading="lazy">
+                   </div>
+                   <div class="col-lg-6">
+                       <h2 class="section-title text-start ps-0">Your Foundation for Success</h2>
+                       <p class="lead">Fujian Concrete Works is dedicated to providing high-quality, affordable, and eco-friendly building materials and construction services.</p>
+                       <p>Our mission is to support sustainable construction practices by offering innovative products and reliable machinery. We are committed to contributing to the development of social housing, institutional buildings, and industrial spaces in Nairobi and beyond.</p>
+                        <div class="row mt-4">
+                             <div class="col-md-4 mb-3 mb-md-0">
+                                <div class="card h-100 text-center py-3">
+                                    <h5 class="fw-bold">Quality</h5>
+                                    <p class="px-2 mb-0">We supply only the best, most durable materials for your projects.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3 mb-md-0">
+                                <div class="card h-100 text-center py-3">
+                                    <h5 class="fw-bold">Sustainability</h5>
+                                    <p class="px-2 mb-0">Our eco-friendly products minimize environmental impact.</p>
+                                </div>
+                            </div>
+                             <div class="col-md-4 mb-3 mb-md-0">
+                                <div class="card h-100 text-center py-3">
+                                    <h5 class="fw-bold">Affordability</h5>
+                                    <p class="px-2 mb-0">Competitive pricing to keep your project on budget.</p>
+                                </div>
+                            </div>
+                        </div>
+                   </div>
+               </div>
+           </div>
+       </section>
+        
+       <!-- Products Section -->
+        <section id="products" class="section fade-in-section" style="background-color: var(--light-grey);">
+             <div class="container">
+                <h2 class="section-title">Products & Materials</h2>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3 d-flex">
+                        <div class="card clickable text-center p-4 w-100" data-bs-toggle="modal" data-bs-target="#aggregatesModal"><div class="card-body d-flex flex-column"><i class="material-icons card-icon mb-3">category</i><h5 class="card-title fw-bold">Aggregates</h5><p class="card-text flex-grow-1">Ballast, Quarry Dust, and Washed Sand.</p></div></div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 d-flex">
+                         <div class="card clickable text-center p-4 w-100" data-bs-toggle="modal" data-bs-target="#stonesModal"><div class="card-body d-flex flex-column"><i class="material-icons card-icon mb-3">foundation</i><h5 class="card-title fw-bold">Building Stones</h5><p class="card-text flex-grow-1">Durable stones for all construction types.</p></div></div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 d-flex">
+                        <div class="card clickable text-center p-4 w-100" data-bs-toggle="modal" data-bs-target="#blocksModal"><div class="card-body d-flex flex-column"><i class="material-icons card-icon mb-3">view_module</i><h5 class="card-title fw-bold">Interlocking Blocks</h5><p class="card-text flex-grow-1">Eco-friendly and cost-effective building.</p></div></div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 d-flex">
+                        <div class="card clickable text-center p-4 w-100" data-bs-toggle="modal" data-bs-target="#timberModal"><div class="card-body d-flex flex-column"><i class="material-icons card-icon mb-3">forest</i><h5 class="card-title fw-bold">Construction Timber</h5><p class="card-text flex-grow-1">Bluegum, Pine, & Cyprus in various sizes.</p></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services & Machinery Section -->
+        <section id="services" class="section fade-in-section">
+             <div class="container">
+                <h2 class="section-title">Services & Machinery</h2>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-6 col-lg-3 d-flex">
+                        <div class="card machinery-card clickable h-100" data-bs-toggle="modal" data-bs-target="#excavationModal">
+                            <img src="https://images.unsplash.com/photo-1596773414344-43425a415b3b?q=80&w=600&auto=format&fit=crop" class="card-img-top lazy" alt="Excavator" loading="lazy">
+                            <div class="card-body text-center d-flex flex-column">
+                                <h5 class="card-title fw-bold">Excavation & Earthworks</h5>
+                                <p class="card-text flex-grow-1">Professional site preparation, trenching, and bulk excavation.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 d-flex">
+                        <div class="card machinery-card clickable h-100" data-bs-toggle="modal" data-bs-target="#tipperModal">
+                            <img src="https://images.unsplash.com/photo-1591856372072-a7b62c4a33d7?q=80&w=600&auto=format&fit=crop" class="card-img-top lazy" alt="Lorry Tipper" loading="lazy">
+                            <div class="card-body text-center d-flex flex-column">
+                                <h5 class="card-title fw-bold">Lorry Tipper Hire</h5>
+                                <p class="card-text flex-grow-1">For bulk transport of materials to and from your site.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 d-flex">
+                        <div class="card machinery-card clickable h-100" data-bs-toggle="modal" data-bs-target="#bulldozerModal">
+                            <img src="https://images.unsplash.com/photo-1620773822089-d106f4ac14d9?q=80&w=600&auto=format&fit=crop" class="card-img-top lazy" alt="Bulldozer" loading="lazy">
+                            <div class="card-body text-center d-flex flex-column">
+                                <h5 class="card-title fw-bold">Bulldozer Hire</h5>
+                                <p class="card-text flex-grow-1">Powerful earth-moving for site preparation and clearing.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 d-flex">
+                        <div class="card machinery-card clickable h-100" data-bs-toggle="modal" data-bs-target="#mixerModal">
+                            <img src="https://images.unsplash.com/photo-1529173871212-0a1a85f47974?q=80&w=600&auto=format&fit=crop" class="card-img-top lazy" alt="Concrete Mixer" loading="lazy">
+                            <div class="card-body text-center d-flex flex-column">
+                                <h5 class="card-title fw-bold">Concrete Mixer Hire</h5>
+                                <p class="card-text flex-grow-1">Reliable mixers for consistent concrete on-site.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Process Section -->
+        <section id="process" class="section fade-in-section" style="background-color: var(--light-grey);">
+            <div class="container">
+                <h2 class="section-title">Our Simple Process</h2>
+                <div class="row process-flow g-4">
+                    <div class="col-lg-3 col-md-6 process-step">
+                        <div class="process-card">
+                            <div class="process-icon"><i class="material-icons">groups</i></div>
+                            <h5 class="fw-bold">Consultation</h5>
+                            <p>Contact us to discuss project needs and get a free quote.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 process-step">
+                        <div class="process-card">
+                            <div class="process-icon"><i class="material-icons">edit_document</i></div>
+                            <h5 class="fw-bold">Order Placement</h5>
+                            <p>Finalize your order for materials or machinery hire with our team.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 process-step">
+                        <div class="process-card">
+                            <div class="process-icon"><i class="material-icons">local_shipping</i></div>
+                            <h5 class="fw-bold">Fast Delivery</h5>
+                            <p>We deliver your materials or equipment directly to your site on time.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 process-step">
+                        <div class="process-card">
+                            <div class="process-icon"><i class="material-icons">thumb_up</i></div>
+                            <h5 class="fw-bold">Project Success</h5>
+                            <p>We provide ongoing support to ensure your project is a success.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Gallery Section -->
+        <section id="gallery" class="section fade-in-section">
+            <div class="container">
+                <h2 class="section-title">Our Projects</h2>
+                <div class="row g-4">
+                    <!-- Project 1 -->
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="project-card w-100">
+                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=600&auto=format&fit=crop" class="project-card-img" alt="Luxury Apartments">
+                            <div class="project-card-body">
+                                <h5 class="project-card-title">Westlands Luxury Apartments</h5>
+                                <p class="project-card-location">Westlands, Nairobi</p>
+                                <p class="project-card-description">Comprehensive construction from foundation to finishing, utilizing our premium interlocking blocks and aggregates.</p>
+                                <span class="project-status status-complete">Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="project-card w-100">
+                            <img src="https://images.unsplash.com/photo-1570778743122-835d35270355?q=80&w=600&auto=format&fit=crop" class="project-card-img" alt="Industrial Park">
+                            <div class="project-card-body">
+                                <h5 class="project-card-title">Athi River Industrial Park</h5>
+                                <p class="project-card-location">Athi River, Machakos</p>
+                                <p class="project-card-description">Large-scale earthworks, excavation, and construction of multiple modern warehouse structures.</p>
+                                <span class="project-status status-ongoing">Ongoing</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="project-card w-100">
+                            <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=600&auto=format&fit=crop" class="project-card-img" alt="Residential Home">
+                            <div class="project-card-body">
+                                <h5 class="project-card-title">Muguga Drive Residential Home</h5>
+                                <p class="project-card-location">Muguga Drive, Nairobi</p>
+                                <p class="project-card-description">Supplied high-quality building stones and timber for a modern, multi-story family home.</p>
+                                <span class="project-status status-complete">Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Project 4 -->
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="project-card w-100">
+                            <img src="https://images.unsplash.com/photo-1583344654573-2c1a8bf91932?q=80&w=600&auto=format&fit=crop" class="project-card-img" alt="Community School">
+                            <div class="project-card-body">
+                                <h5 class="project-card-title">Community School & Library</h5>
+                                <p class="project-card-location">Kibera, Nairobi</p>
+                                <p class="project-card-description">A CSR project providing durable and cost-effective construction using interlocking blocks.</p>
+                                <span class="project-status status-complete">Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 5 -->
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="project-card w-100">
+                            <img src="https://images.unsplash.com/photo-1599059814218-e395d37ae564?q=80&w=600&auto=format&fit=crop" class="project-card-img" alt="Road Paving">
+                            <div class="project-card-body">
+                                <h5 class="project-card-title">Karen Road Paving</h5>
+                                <p class="project-card-location">Karen, Nairobi</p>
+                                <p class="project-card-description">Supplied briquette blocks and quarry dust for paving a 2km private access road network.</p>
+                                <span class="project-status status-ongoing">Ongoing</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 6 -->
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="project-card w-100">
+                            <img src="https://images.unsplash.com/photo-1560416960-6a24c51b2c15?q=80&w=600&auto=format&fit=crop" class="project-card-img" alt="Office Tower">
+                            <div class="project-card-body">
+                                <h5 class="project-card-title">Upper Hill Office Tower</h5>
+                                <p class="project-card-location">Upper Hill, Nairobi</p>
+                                <p class="project-card-description">Provided foundational concrete works and excavation services for a new commercial skyscraper.</p>
+                                <span class="project-status status-complete">Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 7 -->
+                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="project-card w-100">
+                            <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?q=80&w=600&auto=format&fit=crop" class="project-card-img" alt="Townhouses">
+                            <div class="project-card-body">
+                                <h5 class="project-card-title">Lavington Townhouses</h5>
+                                <p class="project-card-location">Lavington, Nairobi</p>
+                                <p class="project-card-description">Full-service construction for a gated community of 12 modern townhouses.</p>
+                                <span class="project-status status-ongoing">Ongoing</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="section fade-in-section testimonials-section">
+            <div class="container">
+                <h2 class="section-title">What Our Clients Say</h2>
+                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" role="region" aria-label="Customer testimonials">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="testimonial-card text-center">
+                                <p>"Fujian's interlocking blocks saved us time and money on our housing project. The quality is unmatched. Highly recommended!"</p>
+                                <footer class="blockquote-footer client-name mt-3">John Doe, CEO of Homes Ltd.</footer>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="testimonial-card text-center">
+                                <p>"The machinery we hired was in excellent condition and their delivery was prompt. A reliable partner for any construction manager."</p>
+                                <footer class="blockquote-footer client-name mt-3">Jane Smith, Project Manager</footer>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="testimonial-card text-center">
+                                <p>"Their customer service is top-notch. They helped us choose the right materials and quantities for our build, which was incredibly helpful."</p>
+                                <footer class="blockquote-footer client-name mt-3">David Green, Homeowner</footer>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section fade-in-section">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1">What areas do you deliver to?</button></h2><div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion"><div class="accordion-body">We primarily deliver within Nairobi and its environs. Please contact us for inquiries about deliveries to other counties.</div></div></div>
+                    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">Is there a minimum order quantity?</button></h2><div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">Minimum order quantities may apply for certain materials. Please contact our sales team for specific details on the products you are interested in.</div></div></div>
+                    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">How do I hire machinery?</button></h2><div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">You can hire machinery by calling us directly or sending an inquiry through our contact form. We will provide you with availability and a rental agreement.</div></div></div>
+                    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">What payment methods do you accept?</button></h2><div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">We accept bank transfers, cheques, and cash payments. For corporate clients, we can arrange credit facilities subject to approval.</div></div></div>
+                    <div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">Do you provide installation services?</button></h2><div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">Yes, we provide professional installation services for interlocking blocks and other specialized products. Our experienced team ensures quality installation that meets industry standards.</div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section id="contact" class="section fade-in-section" style="background-color: var(--light-grey);">
+           <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <p class="text-center mb-4">Have a question or need a quote? Fill out the form below and we'll get back to you as soon as possible.</p>
+                        <form action="#" method="POST" role="form" aria-label="Contact form">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">Your Name</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Your Email</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="mb-3">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="subject" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-danger btn-lg">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Modals -->
+    <!-- Product Modals -->
+    <div class="modal fade" id="aggregatesModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Aggregates</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><img src="https://images.unsplash.com/photo-1593493718731-067165868663?q=80&w=600&auto=format&fit=crop" alt="Construction Aggregates"><p>We provide high-quality construction aggregates including Ballast, Quarry Dust, and Washed Sand. Our materials are sourced from the best quarries to ensure maximum strength and durability for your projects, forming the essential base for any solid construction.</p></div><div class="modal-footer"><a href="#contact" class="btn btn-danger" data-bs-dismiss="modal">Get a Quote for Aggregates</a></div></div></div></div>
+    <div class="modal fade" id="stonesModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Building Stones</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><img src="https://images.unsplash.com/photo-1569389396781-45b34f40390b?q=80&w=600&auto=format&fit=crop" alt="Building Stones"><p>Our building stones are machine-cut for precision and selected for their quality and consistency. Ideal for foundations, walls, and landscaping, they provide a solid and aesthetically pleasing structure. Available in various sizes to meet your specific construction needs.</p></div><div class="modal-footer"><a href="#contact" class="btn btn-danger" data-bs-dismiss="modal">Get a Quote for Stones</a></div></div></div></div>
+    <div class="modal fade" id="blocksModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Interlocking Blocks</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><img src="https://images.unsplash.com/photo-1558985250-2a7b35583b27?q=80&w=600&auto=format&fit=crop" alt="Interlocking Blocks"><p>Our interlocking blocks are an eco-friendly and cost-effective building solution that speeds up construction time. We offer several types: Standard, Curved, Wide, and Briquette blocks for paving. We also lease machinery for on-site block production.</p></div><div class="modal-footer"><a href="#contact" class="btn btn-danger" data-bs-dismiss="modal">Get a Quote for Blocks</a></div></div></div></div>
+    <div class="modal fade" id="timberModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Construction Timber</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><img src="https://images.unsplash.com/photo-1621928379057-a379361732b8?q=80&w=600&auto=format&fit=crop" alt="Construction Timber"><p>We supply high-quality, treated construction timber suitable for roofing, formwork, and structural support. Our range includes Bluegum, Pine, & Cyprus, available in various standard sizes (e.g., 4x2, 6x2, 8x1) to meet project requirements.</p></div><div class="modal-footer"><a href="#contact" class="btn btn-danger" data-bs-dismiss="modal">Get a Quote for Timber</a></div></div></div></div>
+
+    <!-- Services & Machinery Modals -->
+    <div class="modal fade" id="excavationModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Excavation & Earthworks</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><img src="https://images.unsplash.com/photo-1551132644-077e8072047e?q=80&w=600&auto=format&fit=crop" alt="Excavation Service"><p>Our comprehensive excavation and earthworks services provide the perfect start to any construction project. We handle site clearing, bulk excavation, trenching for foundations and utilities, and site grading with precision and efficiency, ensuring your project is built on solid ground.</p></div><div class="modal-footer"><a href="#contact" class="btn btn-danger" data-bs-dismiss="modal">Get a Quote for Excavation</a></div></div></div></div>
+    <div class="modal fade" id="tipperModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Lorry Tipper Hire</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><img src="https://images.unsplash.com/photo-1591856372072-a7b62c4a33d7?q=80&w=600&auto=format&fit=crop" alt="Lorry Tipper"><p>Our reliable fleet of lorry tippers is available for hire for all your bulk material transportation needs. Whether you're moving aggregates, soil, or construction debris, our well-maintained vehicles and experienced drivers ensure timely and efficient service.</p></div><div class="modal-footer"><a href="#contact" class="btn btn-danger" data-bs-dismiss="modal">Request Tipper Hire</a></div></div></div></div>
+    <div class="modal fade" id="bulldozerModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Bulldozer Hire</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><img src="https://images.unsplash.com/photo-1620773822089-d106f4ac14d9?q=80&w=600&auto=format&fit=crop" alt="Bulldozer"><p>For large-scale earthmoving, site clearing, and leveling, our powerful bulldozers are the ideal choice. We offer flexible rental periods with skilled operators to help you prepare your construction site efficiently and safely.</p></div><div class="modal-footer"><a href="#contact" class="btn btn-danger" data-bs-dismiss="modal">Request Bulldozer Hire</a></div></div></div></div>
+    <div class="modal fade" id="mixerModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Concrete Mixer Hire</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><img src="https://images.unsplash.com/photo-1529173871212-0a1a85f47974?q=80&w=600&auto=format&fit=crop" alt="Concrete Mixer"><p>Ensure a consistent, high-quality concrete mix on-site with our portable concrete mixers. Available in various capacities, they are perfect for projects of all sizes, from small residential repairs to larger construction works.</p></div><div class="modal-footer"><a href="#contact" class="btn btn-danger" data-bs-dismiss="modal">Request Mixer Hire</a></div></div></div></div>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-5 mb-lg-0">
+                    <h5 class="text-uppercase">Fujian Concrete Works</h5>
+                    <p>Your trusted partner for affordable, high-quality building materials and sustainable construction services in Nairobi.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="text-white me-3" aria-label="Facebook"><i class="material-icons">facebook</i></a>
+                        <a href="#" class="text-white me-3" aria-label="Twitter"><i class="material-icons">twitter</i></a>
+                        <a href="#" class="text-white me-3" aria-label="Instagram"><i class="material-icons">instagram</i></a>
+                        <a href="#" class="text-white" aria-label="LinkedIn"><i class="material-icons">linkedin</i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-12 mb-5 mb-lg-0">
+                    <h5 class="text-uppercase">Quick Links</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#process">Process</a></li>
+                        <li><a href="#gallery">Projects</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <h5 class="text-uppercase">Contact & Location</h5>
+                    <ul class="list-unstyled contact-info">
+                        <li><i class="material-icons">location_on</i><span>BSK Gardens, Muguga Drive, Westlands, Nairobi</span></li>
+                        <li><i class="material-icons">phone</i><span>0717 779 429 / 0101 032 592</span></li>
+                        <li><i class="material-icons">email</i><span>info@fujianconcreteworks.co.ke</span></li>
+                    </ul>
+                     <div class="map-responsive mt-3">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.364295383563!2d36.80199080756734!3d-1.2778500201211758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f173f4216aa2b%3A0x5205933d366370a6!2sWestlands%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1673921868310!5m2!1sen!2ske" width="100%" height="150" style="border:0; border-radius: 5px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="footer-bottom">
+        <p class="mb-0">&copy; 2025 Fujian Concrete Works. All Rights Reserved.</p>
+    </div>
+
+    <!-- Back to Top Button -->
+    <a href="#" id="back-to-top" class="shadow-lg"><i class="material-icons">arrow_upward</i></a>
+
+    <!-- Floating Buttons -->
+    <div class="floating-btn-container d-block d-md-none">
+        <a href="https://wa.me/254717779429?text=Hello%20Fujian%20Concrete%20Works" class="floating-btn whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp"><i class="material-icons">whatsapp</i></a>
+        <a href="tel:+254717779429" class="floating-btn call-btn" aria-label="Call Us"><i class="material-icons">call</i></a>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- Custom JS for Enhancements -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+            // Navbar scroll effect
+            const nav = document.getElementById('main-nav');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    nav.classList.add('scrolled', 'navbar-light', 'bg-light');
+                    nav.classList.remove('navbar-dark', 'bg-transparent');
+                } else {
+                    nav.classList.remove('scrolled', 'navbar-light', 'bg-light');
+                    nav.classList.add('navbar-dark', 'bg-transparent');
+                }
+            });
+
+            // Fade-in sections on scroll
+            const sections = document.querySelectorAll('.fade-in-section');
+            const observer = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            sections.forEach(section => observer.observe(section));
+            
+            // Animated stats counter
+            const statsObserver = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counters = entry.target.querySelectorAll('.stats-number');
+                        counters.forEach(counter => {
+                            const target = +counter.getAttribute('data-target');
+                            const speed = 200;
+                            const updateCount = () => {
+                                const count = +counter.innerText;
+                                const inc = target / speed;
+                                if (count < target) {
+                                    counter.innerText = Math.ceil(count + inc);
+                                    setTimeout(updateCount, 10);
+                                } else {
+                                    counter.innerText = target + "+";
+                                }
+                            };
+                            updateCount();
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            const statsSection = document.querySelector('#about');
+            if(statsSection) statsObserver.observe(statsSection);
+
+            // Back to top button
+            const backToTopButton = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+            
+            // Form validation and submission
+            const contactForm = document.querySelector('#contact form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form elements
+                    const name = document.getElementById('name');
+                    const email = document.getElementById('email');
+                    const subject = document.getElementById('subject');
+                    const message = document.getElementById('message');
+                    
+                    // Simple validation
+                    if (!name.value.trim()) {
+                        alert('Please enter your name');
+                        name.focus();
+                        return;
+                    }
+                    
+                    if (!email.value.trim()) {
+                        alert('Please enter your email');
+                        email.focus();
+                        return;
+                    }
+                    
+                    // Email validation
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email.value)) {
+                        alert('Please enter a valid email address');
+                        email.focus();
+                        return;
+                    }
+                    
+                    if (!subject.value.trim()) {
+                        alert('Please enter a subject');
+                        subject.focus();
+                        return;
+                    }
+                    
+                    if (!message.value.trim()) {
+                        alert('Please enter your message');
+                        message.focus();
+                        return;
+                    }
+                    
+                    // Form submission simulation
+                    const submitButton = contactForm.querySelector('button[type="submit"]');
+                    const originalText = submitButton.textContent;
+                    submitButton.textContent = 'Sending...';
+                    submitButton.disabled = true;
+                    
+                    // Simulate form submission
+                    setTimeout(() => {
+                        alert('Thank you for your message! We will get back to you soon.');
+                        contactForm.reset();
+                        submitButton.textContent = originalText;
+                        submitButton.disabled = false;
+                    }, 1500);
+                });
+            }
+            
+            // Cookie consent functionality
+            const cookieConsent = document.getElementById('cookieConsent');
+            const acceptCookies = document.getElementById('acceptCookies');
+            const rejectCookies = document.getElementById('rejectCookies');
+            
+            // Check if user has already made a choice
+            const cookieConsentGiven = localStorage.getItem('cookieConsent');
+            
+            if (!cookieConsentGiven) {
+                // Show cookie consent banner after a delay
+                setTimeout(() => {
+                    cookieConsent.classList.add('show');
+                }, 1000);
+            }
+            
+            acceptCookies.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'accepted');
+                cookieConsent.classList.remove('show');
+            });
+            
+            rejectCookies.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'rejected');
+                cookieConsent.classList.remove('show');
+            });
+            
+            // Lazy loading for images
+            const lazyImages = document.querySelectorAll('img.lazy');
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.dataset.src || img.src;
+                            img.classList.remove('lazy');
+                            imageObserver.unobserve(img);
+                        }
+                    });
+                });
+                
+                lazyImages.forEach(function(img) {
+                    imageObserver.observe(img);
+                });
+            } else {
+                // Fallback for browsers that don't support IntersectionObserver
+                lazyImages.forEach(function(img) {
+                    img.src = img.dataset.src || img.src;
+                    img.classList.remove('lazy');
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
